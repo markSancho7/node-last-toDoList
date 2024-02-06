@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const tasksRoutes = require('./routes/tasks.routes');
 
 require('dotenv').config();
 // Rutas
@@ -17,6 +18,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // Uso de rutas
+app.use('/api/tasks', tasksRoutes);
 
 const startServer = async () => {
   try {
